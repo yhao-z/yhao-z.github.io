@@ -5,4 +5,4 @@ permalink: /contact/
 author_profile: true
 ---
 
-* e-mail: yhao_zhang@stu.hit.edu.cn
+* e-mail: yhao-zhang@stu.hit.edu.cn
