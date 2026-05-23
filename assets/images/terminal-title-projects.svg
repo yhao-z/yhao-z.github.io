@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="50" viewBox="0 0 350 50">
+  <defs>
+    <filter id="terminalGlowprojects" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="glow"/>
+      <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+    </filter>
+    <linearGradient id="textGradientprojects" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7ee787;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#58a6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7ee787;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="350" height="50" fill="#0d1117" rx="4"/>
+  <!-- 3D effect layers -->
+  <text x="17" y="32" font-family="monospace" font-size="22" fill="#1a3d1a" opacity="0.8"> Projects</text>
+  <text x="16" y="31" font-family="monospace" font-size="22" fill="#2d5a2d" opacity="0.9"> Projects</text>
+  <text x="15" y="30" font-family="monospace" font-size="22" fill="url(#textGradientprojects)" filter="url(#terminalGlowprojects)">Projects</text>
+</svg>

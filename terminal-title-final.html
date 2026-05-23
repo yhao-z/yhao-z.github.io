@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Title - Website Integration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+        
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            padding: 40px;
+        }
+        
+        /* Terminal section header */
+        .terminal-section-header {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #161b22;
+            border-radius: 8px;
+            border-left: 4px solid #00ff41;
+        }
+        
+        /* Terminal command line */
+        .terminal-command {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #21262d;
+        }
+        
+        .terminal-command .user {
+            color: #00ffff;
+        }
+        
+        .terminal-command .path {
+            color: #58a6ff;
+        }
+        
+        .terminal-command .command {
+            color: #00ff41;
+        }
+        
+        /* ASCII Art Title */
+        .ascii-title {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            white-space: pre;
+            font-size: 12px;
+            line-height: 1.15;
+            color: #00ff41;
+            text-shadow: 
+                0 0 3px #00ff41,
+                0 0 6px #008020;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        /* Simple terminal title */
+        .simple-terminal-title {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #00ff41;
+            text-shadow: 
+                0 0 5px #00ff41,
+                0 0 10px #008020;
+            margin: 15px 0;
+            letter-spacing: 3px;
+        }
+        
+        /* Box drawing title */
+        .box-title {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            white-space: pre;
+            font-size: 14px;
+            line-height: 1.2;
+            color: #00ff41;
+            text-shadow: 
+                0 0 3px #00ff41,
+                0 0 6px #008020;
+            margin: 15px 0;
+        }
+        
+        /* Section subtitle */
+        .terminal-subtitle {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            color: #8b949e;
+            margin-top: 15px;
+        }
+        
+        .terminal-subtitle::before {
+            content: '// ';
+            color: #00ffff;
+        }
+        
+        /* Content area */
+        .content-area {
+            background: #161b22;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .content-area p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Separator */
+        .separator {
+            color: #008020;
+            margin: 20px 0;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        /* Blinking cursor */
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #c9d1d9; margin-bottom: 30px;">Terminal Title Examples for Website</h1>
+    
+    <!-- Example 1: ASCII Art Style -->
+    <div class="terminal-section-header">
+        <div class="terminal-command">
+            <span class="user">yinghao</span>@<span class="path">terminal</span>:~$ <span class="command">cat about.txt</span>
+        </div>
+        
+        <div class="ascii-title">
+ █████╗ ██████╗  ██████╗ ██╗   ██╗████████╗
+██╔══██╗██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝
+███████║██████╔╝██║   ██║██║   ██║   ██║   
+██╔══██║██╔══██╗██║   ██║██║   ██║   ██║   
+██║  ██║██████╔╝╚██████╔╝╚██████╔╝   ██║   
+╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚═════╝    ╚═╝   
+                                             
+ ███╗   ███╗███████╗
+ ████╗ ████║██╔════╝
+ ██╔████╔██║█████╗  
+ ██║╚██╔╝██║██╔══╝  
+ ██║ ╚═╝ ██║███████╗
+ ╚═╝     ╚═╝╚══════╝</div>
+        
+        <p class="terminal-subtitle">Getting to know Yinghao Zhang</p>
+    </div>
+    
+    <!-- Example 2: Box Drawing Style -->
+    <div class="terminal-section-header">
+        <div class="terminal-command">
+            <span class="user">yinghao</span>@<span class="path">terminal</span>:~$ <span class="command">cat publications.txt</span>
+        </div>
+        
+        <div class="box-title">
+┌─────────────────────────────────────────┐
+│ ► PUBLIC ATIONS                         │
+│   ─────────────                         │
+│   Research Papers & Articles            │
+└─────────────────────────────────────────┘</div>
+        
+        <p class="terminal-subtitle">Research papers and publications</p>
+    </div>
+    
+    <!-- Example 3: Simple Terminal Style -->
+    <div class="terminal-section-header">
+        <div class="terminal-command">
+            <span class="user">yinghao</span>@<span class="path">terminal</span>:~$ <span class="command">echo $TITLE</span>
+        </div>
+        
+        <div class="simple-terminal-title">> SKILLS_<span class="cursor">_</span></div>
+        
+        <p class="terminal-subtitle">Technical skills and expertise</p>
+    </div>
+    
+    <!-- Example 4: Bracket Style -->
+    <div class="terminal-section-header">
+        <div class="terminal-command">
+            <span class="user">yinghao</span>@<span class="path">terminal</span>:~$ <span class="command">cat projects.md</span>
+        </div>
+        
+        <div class="box-title">
+╔═══════════════════════════════════════╗
+║     PROJECTS                          ║
+║     ─────────                         ║
+║     Research & Open Source Projects   ║
+╚═══════════════════════════════════════╝</div>
+        
+        <p class="terminal-subtitle">Research and open source projects</p>
+    </div>
+    
+    <!-- Example 5: Double Line Style -->
+    <div class="terminal-section-header">
+        <div class="terminal-command">
+            <span class="user">yinghao</span>@<span class="path">terminal</span>:~$ <span class="command">cat contact.info</span>
+        </div>
+        
+        <div class="box-title">
+╔═══════════════════════════════════════╗
+║ ► CONTACT                             ║
+║   ────────                            ║
+║   Get in touch with me                ║
+╚═══════════════════════════════════════╝</div>
+        
+        <p class="terminal-subtitle">Get in touch with me</p>
+    </div>
+    
+    <div class="content-area">
+        <h3 style="color: #00ff41; margin-bottom: 15px;">Integration Notes:</h3>
+        <p>These terminal-style titles use ASCII art and box drawing characters to create a retro terminal look.</p>
+        <p>Each title can be customized by changing the characters, colors, and effects.</p>
+        <p>The <code style="color: #00ffff;">terminal-pixel-title</code> class is best for full ASCII art, while <code style="color: #00ffff;">box-title</code> works well for simpler designs.</p>
+    </div>
+</body>
+</html>
