@@ -1,4 +1,5 @@
 ---
+layout: geek
 permalink: /
 title: "About"
 excerpt: "About me"
@@ -8,10 +9,11 @@ redirect_from:
   - /about.html
 ---
 
+<!-- This content is rendered by the geek layout -->
+
 Yinghao Zhang is currently a doctoral candidate under the supervision of Prof. [Yue Hu](https://homepage.hit.edu.cn/huyue) at Harbin Institute of Technology, Harbin, China. His research interests lie in image reconstruction, MR image reconstruction, tensor completion and low rank.
 
 ## Education 
-
 Ph.D candidate, 2022 - now, School of Electronics and Information Engineering, Harbin Institute of Technology, Harbin, China
 
 M.S., 2020 - 2022, School of Electronics and Information Engineering, Harbin Institute of Technology, Harbin, China
