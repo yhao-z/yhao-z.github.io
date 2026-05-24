@@ -1,35 +1,28 @@
 // Geek Portfolio JavaScript
-// Tab switching and interactive features
+// Keyboard navigation and scroll animations
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab Switching Functionality
+    // Keyboard navigation between pages
     const tabs = document.querySelectorAll('.nav-tab');
-    const sections = document.querySelectorAll('.content-section');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs and sections
-            tabs.forEach(t => t.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-
-            // Add active class to clicked tab
-            this.classList.add('active');
-
-            // Show corresponding section
-            const tabId = this.getAttribute('data-tab');
-            const targetSection = document.getElementById(tabId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-        });
-    });
-
-    // Add keyboard navigation
+    
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-            const activeTab = document.querySelector('.nav-tab.active');
             const tabsArray = Array.from(tabs);
-            const currentIndex = tabsArray.indexOf(activeTab);
+            const currentPath = window.location.pathname;
+            
+            // 找到当前页面对应的索引
+            let currentIndex = -1;
+            tabsArray.forEach((tab, index) => {
+                const href = tab.getAttribute('href');
+                // 处理根路径和子路径
+                if (href === currentPath || 
+                    (href === '/' && (currentPath === '/' || currentPath === '')) ||
+                    (href !== '/' && currentPath.startsWith(href))) {
+                    currentIndex = index;
+                }
+            });
+            
+            if (currentIndex === -1) return;
             
             let newIndex;
             if (e.key === 'ArrowLeft') {
@@ -38,21 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 newIndex = currentIndex < tabsArray.length - 1 ? currentIndex + 1 : 0;
             }
             
-            tabsArray[newIndex].click();
+            window.location.href = tabsArray[newIndex].getAttribute('href');
         }
-    });
-
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
 
     // Add animation on scroll

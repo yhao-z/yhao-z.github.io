@@ -9,7 +9,6 @@ layout: compress
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }} | Geek Portfolio</title>
     <link rel="stylesheet" href="/assets/css/geek-styles.css">
-    <script src="/assets/js/geek-portfolio.js" defer></script>
 </head>
 <body>
     <div class="main-container">
@@ -17,7 +16,7 @@ layout: compress
         <aside class="sidebar">
             <!-- Profile Section -->
             <div class="profile-section">
-                <img src="images/pic.png" alt="Yinghao Zhang" class="profile-avatar">
+                <img src="/images/pic.png" alt="Yinghao Zhang" class="profile-avatar">
                 <h2 class="profile-name">Yinghao Zhang</h2>
                 <p class="profile-title">Ph.D candidate @ Harbin Institute of Technology</p>
                 <p class="profile-location">📍 Harbin, China</p>
@@ -25,41 +24,27 @@ layout: compress
 
             <!-- Navigation Tabs -->
             <nav class="nav-tabs">
-                <button class="nav-tab active" data-tab="about">
+                <a href="/" class="nav-tab{% if page.permalink == '/' or page.url == '/' %} active{% endif %}">
                     <span class="nav-tab-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                         </svg>
                     </span> About
-                </button>
-                <button class="nav-tab" data-tab="publications">
+                </a>
+                <a href="/publications/" class="nav-tab{% if page.url == '/publications/' %} active{% endif %}">
                     <span class="nav-tab-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
                         </svg>
                     </span> Publications
-                </button>
-                <button class="nav-tab" data-tab="skills">
-                    <span class="nav-tab-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                        </svg>
-                    </span> Skills
-                </button>
-                <button class="nav-tab" data-tab="projects">
+                </a>
+                <a href="/projects/" class="nav-tab{% if page.url == '/projects/' %} active{% endif %}">
                     <span class="nav-tab-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </span> Projects
-                </button>
-                <button class="nav-tab" data-tab="contact">
-                    <span class="nav-tab-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                    </span> Contact
-                </button>
+                </a>
             </nav>
 
             <!-- Social Links -->
@@ -96,6 +81,7 @@ layout: compress
 
             <!-- Footer in Sidebar -->
             <footer class="sidebar-footer">
+                <p>Powered by Hermes Agent and Xiaomi MIMO</p>
                 <p>&copy; 2024 Yinghao Zhang. All rights reserved.</p>
                 <p>Built with ❤️ using Jekyll.</p>
             </footer>
@@ -103,469 +89,7 @@ layout: compress
 
         <!-- Right Content Area -->
         <main class="content-area">
-            <!-- About Section -->
-            <section class="content-section active" id="about">
-                <div class="section-header terminal-section-header">
-                    <div class="ascii-title">
- █████╗ ██████╗  ██████╗ ██╗   ██╗████████╗  ███╗   ███╗███████╗
-██╔══██╗██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝  ████╗ ████║██╔════╝
-███████║██████╔╝██║   ██║██║   ██║   ██║     ██╔████╔██║█████╗  
-██╔══██║██╔══██╗██║   ██║██║   ██║   ██║     ██║╚██╔╝██║██╔══╝  
-██║  ██║██████╔╝╚██████╔╝╚██████╔╝   ██║     ██║ ╚═╝ ██║███████╗
-╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚═════╝    ╚═╝     ╚═╝     ╚═╝╚══════╝</div>
-                    <p class="terminal-subtitle">Getting to know Yinghao Zhang</p>
-                </div>
-                <div class="about-content">
-                    <div class="intro-card">
-                        <div class="intro-header">
-                            <span class="intro-icon">></span>
-                            <span class="intro-title">about_me</span>
-                        </div>
-                        <p class="intro-text">I am Yinghao Zhang, a Ph.D. candidate at Harbin Institute of Technology, specializing in inverse problems in medical imaging. My primary research focuses on undersampled MRI image reconstruction, leveraging compressed sensing, deep learning, and tensor theory. The methodologies I develop are generalizable to a broader range of ill-posed problems, including image restoration and super-resolution. With a solid mathematical foundation and an in-depth research approach, I am dedicated to advancing computational imaging techniques for clinical applications.</p>
-                        <div class="intro-tags">
-                            <span class="intro-tag">MRI Reconstruction</span>
-                            <span class="intro-tag">Deep Learning</span>
-                            <span class="intro-tag">Tensor Theory</span>
-                            <span class="intro-tag">Compressed Sensing</span>
-                        </div>
-                    </div>
-                    
-                    <h3>Education Background</h3>
-                    <div class="education-tags">
-                        <div class="education-tag">
-                            <div class="education-content">
-                                <div class="education-year">2022 - Present</div>
-                                <div class="education-school">Harbin Institute of Technology</div>
-                                <div class="education-degree">Ph.D. Candidate</div>
-                                <div class="education-field">Information and Communication Engineering</div>
-                                <div class="education-note">Expected graduation: 2027</div>
-                            </div>
-                            <div class="education-logos">
-                                <img src="/images/hit.png" alt="HIT Logo" class="education-logo">
-                            </div>
-                        </div>
-                        <div class="education-tag">
-                            <div class="education-content">
-                                <div class="education-year">2020 - 2022</div>
-                                <div class="education-school">Harbin Institute of Technology</div>
-                                <div class="education-degree">Master's Degree</div>
-                                <div class="education-field">Electronic Information</div>
-                            </div>
-                            <div class="education-logos">
-                                <img src="/images/hit.png" alt="HIT Logo" class="education-logo">
-                            </div>
-                        </div>
-                        <div class="education-tag">
-                            <div class="education-content">
-                                <div class="education-year">2016 - 2020</div>
-                                <div class="education-school">Harbin Institute of Technology</div>
-                                <div class="education-degree">Bachelor's Degree</div>
-                                <div class="education-field">Electronic Information Engineering</div>
-                                <div class="education-note">Top 10% in major, recommended for graduate study; Excellent Graduate; First-class Scholarship once; Second-class Scholarship multiple times</div>
-                            </div>
-                            <div class="education-logos">
-                                <img src="/images/hit.png" alt="HIT Logo" class="education-logo">
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Research Interests</h3>
-                    <div class="tags-group">
-                        <div class="tag-combined">
-                            <span class="tag-main">Inverse Problems</span>
-                            <div class="tag-detail">
-                                <span class="tag">Medical Image Reconstruction</span>
-                                <span class="tag">MRI Reconstruction</span>
-                                <span class="tag">Image Restoration</span>
-                                <span class="tag">Compressed Sensing</span>
-                            </div>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">Deep Learning</span>
-                            <div class="tag-detail">
-                                <span class="tag">Interpretable Models</span>
-                                <span class="tag">Optimization Methods</span>
-                            </div>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">Tensor Theory</span>
-                            <div class="tag-detail">
-                                <span class="tag">Tensor Completion</span>
-                                <span class="tag">Low-Rank Priors</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Professional Skills</h3>
-                    <div class="tags-group">
-                        <div class="tag-combined">
-                            <span class="tag-main">Programming Languages</span>
-                            <div class="tag-detail">
-                                <span class="tag">Python</span>
-                                <span class="tag">Matlab</span>
-                                <span class="tag">C++</span>
-                            </div>
-                            <p class="tag-description">Proficient in Python and Matlab for scientific computing and deep learning development</p>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">Deep Learning Frameworks</span>
-                            <div class="tag-detail">
-                                <span class="tag">PyTorch</span>
-                                <span class="tag">TensorFlow</span>
-                                <span class="tag">Huawei MindSpore</span>
-                            </div>
-                            <p class="tag-description">Experienced in building and training deep learning models; successfully migrated published models to Huawei Ascend chips</p>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">Development Tools</span>
-                            <div class="tag-detail">
-                                <span class="tag">Linux (Ubuntu)</span>
-                                <span class="tag">Git</span>
-                                <span class="tag">Docker</span>
-                                <span class="tag">LaTeX</span>
-                            </div>
-                            <p class="tag-description">Long-term Ubuntu user, replacing Windows 11 as primary office and development system</p>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">AI Tools</span>
-                            <div class="tag-detail">
-                                <span class="tag">Vibe Coding</span>
-                                <span class="tag">Hermes Agent</span>
-                                <span class="tag">Claude Code</span>
-                            </div>
-                            <p class="tag-description">Skilled in AI-assisted programming tools to enhance development efficiency</p>
-                        </div>
-                        <div class="tag-combined">
-                            <span class="tag-main">Languages</span>
-                            <div class="tag-detail">
-                                <span class="tag">English (CET-6: 572)</span>
-                                <span class="tag">Chinese (Native)</span>
-                            </div>
-                            <p class="tag-description">Fluent in reading literature, good oral English, responsible for international student communication</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Publications Section -->
-            <section class="content-section" id="publications">
-                <div class="section-header terminal-section-header">
-                    <div class="ascii-title">
-██████╗ ██╗   ██╗██████╗ ██╗     ██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
-██╔══██╗██║   ██║██╔══██╗██║     ██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
-██████╔╝██║   ██║██████╔╝██║     ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
-██╔═══╝ ██║   ██║██╔══██╗██║     ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
-██║     ╚██████╔╝██████╔╝███████╗██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
-╚═╝      ╚═════╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝</div>
-                    <p class="terminal-subtitle">Research papers and publications</p>
-                </div>
-                <div class="publications-content">
-                    <h3>Journal Papers</h3>
-                    <ul class="publications-list">
-                        <li class="publication-item">
-                            <div class="publication-title">T2LR-Net: An unrolling network learning transformed tensor low-rank prior for dynamic MR image reconstruction</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Li P, Hu Y</div>
-                            <div class="publication-venue">Computers in Biology and Medicine, 2024, 170: 108034</div>
-                            <div class="publication-meta">SCI, IF=6.3, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">JotlasNet: Joint tensor low-rank and attention-based sparse unrolling network for accelerating dynamic MRI</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Gui H, Yang N, Hu Y</div>
-                            <div class="publication-venue">Magnetic Resonance Imaging, 2025, 118: 110337</div>
-                            <div class="publication-meta">SCI, IF=2.0, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Untrained Deep Fixed Point Framework for Accelerated MRI Reconstruction</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Gui H, Yang N, Hu Y</div>
-                            <div class="publication-venue">IEEE Transactions on Image Processing, 2026</div>
-                            <div class="publication-meta">Under Review (Major Revision), IF=13.7, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">HiDecUN: A Decoder-Only Unfolding Network with Hypergraph-Inspired Attention for Accelerated Cine MRI Reconstruction</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Peng L, Hu Y</div>
-                            <div class="publication-venue">Medical Image Analysis, 2026</div>
-                            <div class="publication-meta">Under Review, SCI, IF=11.8, First Author</div>
-                        </li>
-                    </ul>
-
-                    <h3>Conference Papers</h3>
-                    <ul class="publications-list">
-                        <li class="publication-item">
-                            <div class="publication-title">Alternating Unrolling Network of Jointly Low-Rank and Sparse Tensor for Accelerating Dynamic MRI</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y, Zhou C, Hu Y</div>
-                            <div class="publication-venue">2024 IEEE 20th International Symposium on Biomedical Imaging (ISBI)</div>
-                            <div class="publication-meta">EI, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Alternating Unrolling Network using Jointly Low-Rank and Sparse Tensor Prior for Accelerating Dynamic MRI</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y</div>
-                            <div class="publication-venue">2024 Proceedings of International Society for Magnetic Resonance in Medicine (ISMRM)</div>
-                            <div class="publication-meta">First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Deep Image-Pass Filter for Accelerating Dynamic MRI</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Li P, Hu Y</div>
-                            <div class="publication-venue">2024 IEEE 20th International Symposium on Biomedical Imaging (ISBI)</div>
-                            <div class="publication-meta">EI, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Deep Image-Pass Filter for Accelerating Dynamic MRI</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y</div>
-                            <div class="publication-venue">2024 Proceedings of International Society for Magnetic Resonance in Medicine (ISMRM)</div>
-                            <div class="publication-meta">First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Deep unrolling Shrinkage Network for Dynamic MR imaging</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Li X, Li W, Hu Y</div>
-                            <div class="publication-venue">2023 IEEE International Conference on Image Processing (ICIP)</div>
-                            <div class="publication-meta">EI, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Dynamic MRI using Learned Transform-based Deep Tensor Low-Rank Network (LT2LR-Net)</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Li P, Hu Y</div>
-                            <div class="publication-venue">2023 IEEE 20th International Symposium on Biomedical Imaging (ISBI)</div>
-                            <div class="publication-meta">EI, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Dynamic MRI using Learned Transform-based Tensor Low-Rank Network (LT2LR-Net)</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Li X, Li P, Hu Y</div>
-                            <div class="publication-venue">2023 Proceedings of International Society for Magnetic Resonance in Medicine (ISMRM)</div>
-                            <div class="publication-meta">First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Dynamic cardiac MRI reconstruction using combined tensor nuclear norm and casorati matrix nuclear norm regularizations</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y</div>
-                            <div class="publication-venue">2022 IEEE 19th International Symposium on Biomedical Imaging (ISBI)</div>
-                            <div class="publication-meta">EI, First Author</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Dynamic MRI Reconstruction Combining Tensor Nuclear Norm and Casorati Matrix Nuclear Norm</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y</div>
-                            <div class="publication-venue">2022 Proceedings of International Society for Magnetic Resonance in Medicine (ISMRM)</div>
-                            <div class="publication-meta">First Author</div>
-                        </li>
-                    </ul>
-
-                    <h3>Other Achievements</h3>
-                    <ul class="publications-list">
-                        <li class="publication-item">
-                            <div class="publication-title">Patent: Method for Dynamic MRI Reconstruction Based on Structured Low-Rank Matrix</div>
-                            <div class="publication-authors">Hu Y, Li P, <span class="author-highlight">Zhang Yinghao</span></div>
-                            <div class="publication-venue">Chinese Patent, CN202110167389.9, CN112819949A</div>
-                            <div class="publication-meta">Authorized, Third Inventor</div>
-                        </li>
-                        <li class="publication-item">
-                            <div class="publication-title">Differentiable SVD based on Moore-Penrose Pseudoinverse for Inverse Imaging Problems</div>
-                            <div class="publication-authors"><span class="author-highlight">Zhang Yinghao</span>, Hu Y</div>
-                            <div class="publication-venue">ArXiv, 2024</div>
-                            <div class="publication-meta">First Author</div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section class="content-section" id="skills">
-                <div class="section-header terminal-section-header">
-                    <div class="ascii-title">
-██████╗██╗  ██╗███████╗██╗     ██╗      ██████╗
-██╔════╝██║ ██╔╝╚══███╔╝██║     ██║     ██╔════╝
-╚█████╗ █████╔╝   ███╔╝ ██║     ██║     ╚█████╗ 
- ╚═══██╗██╔═██╗   ███╔╝ ██║     ██║      ╚═══██╗
-██████╔╝██║  ██╗███████╗███████╗███████╗██████╔╝
-╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═════╝</div>
-                    <p class="terminal-subtitle">Technical skills and expertise</p>
-                </div>
-                <div class="skills-content">
-                    <h3>Programming Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-name">Python</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">MATLAB</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">C++</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Deep Learning Frameworks</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-name">PyTorch</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">TensorFlow</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Development Tools</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Vibe Coding</span>
-                        <span class="skill-tag">Hermes Agent</span>
-                        <span class="skill-tag">Claude Code</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                    </div>
-
-                    <h3>Language Skills</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">English (CET-6: 572)</span>
-                        <span class="skill-tag">Chinese (Native)</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section class="content-section" id="projects">
-                <div class="section-header terminal-section-header">
-                    <div class="ascii-title">
-██████╗ ██████╗  ██████╗       ██╗███████╗ ██████╗████████╗ ██████╗
-██╔══██╗██╔══██╗██╔═══██╗      ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝
-██████╔╝██████╔╝██║   ██║      ██║█████╗  ██║        ██║   ╚█████╗ 
-██╔═══╝ ██╔══██╗██║   ██║██╗   ██║██╔══╝  ██║        ██║    ╚═══██╗
-██║     ██║  ██║╚██████╔╝╚██████╔╝███████╗╚██████╗   ██║   ██████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚═════╝</div>
-                    <p class="terminal-subtitle">Research and open source projects</p>
-                </div>
-                <div class="projects-content">
-                    <h3>Research Projects</h3>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3 class="project-title">T2LR-Net: Tensor Low-Rank Network</h3>
-                                <p class="project-description">Dynamic MRI reconstruction network based on tensor low-rank prior, combining traditional optimization methods with deep learning techniques.</p>
-                                <div class="project-tags">
-                                    <span class="tag">PyTorch</span>
-                                    <span class="tag">MRI Reconstruction</span>
-                                    <span class="tag">Tensor Low-Rank</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3 class="project-title">JotlasNet: Joint Tensor Low-Rank and Attention Network</h3>
-                                <p class="project-description">Accelerating dynamic MRI using joint tensor low-rank and attention-based sparse unrolling network.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Deep Learning</span>
-                                    <span class="tag">MRI Acceleration</span>
-                                    <span class="tag">Attention Mechanism</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3 class="project-title">Unsupervised Deep Fixed Point Framework</h3>
-                                <p class="project-description">Unsupervised deep fixed point framework for accelerated MRI reconstruction.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Unsupervised Learning</span>
-                                    <span class="tag">Fixed Point Method</span>
-                                    <span class="tag">MRI Reconstruction</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Open Source Projects</h3>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3 class="project-title">Chanlun-Dev: Technical Analysis Library</h3>
-                                <p class="project-description">Python library for technical analysis based on Chanlun theory, supporting stock analysis and trading simulation.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Technical Analysis</span>
-                                    <span class="tag">Trading</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3 class="project-title">Personal Homepage Generator</h3>
-                                <p class="project-description">Modern geek-style personal homepage built with Jekyll, supporting left-right column layout.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Jekyll</span>
-                                    <span class="tag">HTML/CSS/JS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section class="content-section" id="contact">
-                <div class="section-header terminal-section-header">
-                    <div class="ascii-title">
-██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗
-██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝
-██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║   
-██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║   
-╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║   
- ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝</div>
-                    <p class="terminal-subtitle">Get in touch with me</p>
-                </div>
-                <div class="contact-content">
-                    <h3>Contact Information</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">yhao-zhang@stu.hit.edu.cn</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-label">Location</div>
-                            <div class="contact-value">Harbin, China</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🌐</div>
-                            <div class="contact-label">Website</div>
-                            <div class="contact-value">yhao-z.github.io</div>
-                        </div>
-                    </div>
-
-                    <h3>Academic Links</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">🐙</div>
-                            <div class="contact-label">GitHub</div>
-                            <div class="contact-value"><a href="https://github.com/yhao-z">github.com/yhao-z</a></div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📚</div>
-                            <div class="contact-label">Google Scholar</div>
-                            <div class="contact-value"><a href="https://scholar.google.com/citations?user=FV52htsAAAAJ&hl=zh-CN">View Profile</a></div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🔗</div>
-                            <div class="contact-label">ORCID</div>
-                            <div class="contact-value"><a href="http://orcid.org/0000-0001-8501-6180">0000-0001-8501-6180</a></div>
-                        </div>
-                    </div>
-                    <h3>Research Collaboration</h3>
-                    <p>Welcome to contact me if you are interested in medical image reconstruction, tensor completion, deep learning, and other related fields to explore collaboration opportunities.</p>
-                    
-                    <h3>Current Status</h3>
-                    <p>Currently pursuing a Ph.D. degree, focusing on deep learning methods for dynamic MRI reconstruction. Welcome any academic exchange and cooperation.</p>
-                </div>
-            </section>
+            {{ content }}
         </main>
     </div>
 </body>

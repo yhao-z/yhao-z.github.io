@@ -1,0 +1,125 @@
+---
+layout: geek
+title: "Projects"
+permalink: /projects/
+---
+<section class="content-section">
+    <div class="section-header terminal-section-header">
+        <div class="ascii-title">
+██████╗ ██████╗  ██████╗       ██╗███████╗ ██████╗████████╗ ██████╗
+██╔══██╗██╔══██╗██╔═══██╗      ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝
+██████╔╝██████╔╝██║   ██║      ██║█████╗  ██║        ██║   ╚█████╗ 
+██╔═══╝ ██╔══██╗██║   ██║██╗   ██║██╔══╝  ██║        ██║    ╚═══██╗
+██║     ██║  ██║╚██████╔╝╚██████╔╝███████╗╚██████╗   ██║   ██████╔╝
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚═════╝</div>
+        <p class="terminal-subtitle">Research and open source projects</p>
+    </div>
+    <div class="projects-content">
+        <h3>Research Projects</h3>
+        <div class="projects-list">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Untrained Fixed Point Network</h3>
+                    <ul class="project-details">
+                        <li>Oriented towards Untrained framework: Representative approach is Deep Image Prior, where the network doesn't require pre-training. Instead, it only trains on a single test sample during inference, and the network output becomes the test result after training.</li>
+                        <li>First to combine fixed point theory with Untrained framework, with mathematical proof of convergence</li>
+                        <li>Incorporated prior information to design a physics-driven network architecture within the proposed framework</li>
+                        <li>Related work submitted to IEEE TIP (Q1 TOP, IF: 13.7), Major Revision</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Untrained Framework</span>
+                        <span class="tag">Fixed Point Theory</span>
+                        <span class="tag">IEEE TIP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Hypergraph-Inspired Linear Attention + Decoder-only Image Reconstruction Network</h3>
+                    <ul class="project-details">
+                        <li>For MRI video reconstruction, data dimensions are large. Self-attention's quadratic complexity makes it difficult to directly apply in MRI video reconstruction frameworks (typically cascading dozens of networks)</li>
+                        <li>Combined self-attention with graph theory, using hypergraph to restructure self-attention mechanism, transforming it into "aggregate features to hyperedges, then distribute features to nodes" operation, achieving linear complexity</li>
+                        <li>For image restoration, current approaches directly apply U-Net from image segmentation</li>
+                        <li>Designed a Decoder-only network without U-Net's downsample-upsample approach, directly restoring from low to high resolution progressively, which is intuitive and suitable for image restoration tasks</li>
+                        <li>Related work submitted to Medical Image Analysis (Q1 TOP)</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Hypergraph Attention</span>
+                        <span class="tag">Decoder-only</span>
+                        <span class="tag">Medical Image Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Tensor Low-Rank and Sparse Constrained Deep Unfolding Network</h3>
+                    <ul class="project-details">
+                        <li>For MRI video reconstruction, data is 3D (2D+T). Existing models mainly use matrices to describe redundant information within videos, which is insufficient</li>
+                        <li>From tensor perspective, based on tensor t-SVD decomposition, mathematically derived and proved a new unitary transform-based t-SVD decomposition method, designing a tensor low-rank prior</li>
+                        <li>Combined tensor low-rank and sparse priors, derived iterative optimization algorithm, implemented with deep learning to build deep unfolding network, where low-rank and sparse transform domains are adaptively learned using CNN</li>
+                        <li>Related work published in CIBM (Q2 TOP at submission)</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Tensor Low-Rank</span>
+                        <span class="tag">Deep Unfolding</span>
+                        <span class="tag">CIBM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Differentiable SVD Algorithm Research</h3>
+                    <ul class="project-details">
+                        <li>In 2024, in PyTorch, if forward propagation contains SVD, training becomes extremely unstable</li>
+                        <li>The reason is: SVD derivative doesn't exist when there are two identical singular values</li>
+                        <li>Deeply studied SVD and its derivative derivation, combined with matrix generalized inverse, defined a differentiable SVD, and implemented its forward and backward propagation in PyTorch, defining a new SVD operator</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Differentiable SVD</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Inverse Problems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Other Projects</h3>
+        <div class="projects-list">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">CMRxRecon2025 Challenge - 8th Place</h3>
+                    <p class="project-team">Team: <strong>Hit.imip</strong></p>
+                    <ul class="project-details">
+                        <li>CMRxRecon2025 is a MICCAI 2025 challenge focused on cardiac MRI reconstruction, aiming to build foundation models for multi-center, multi-vendor, and multiple disease scenarios</li>
+                        <li>Challenge involved 5+ centers, 10+ scanners, and various cardiovascular diseases including hypertrophic cardiomyopathy and myocardial infarction</li>
+                        <li>Our team achieved 8th place by fusing PromptMR+ with Swin Transformer architecture</li>
+                        <li>Trained with only 2 NVIDIA A6000 GPUs, potential for better results with more computational resources</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag tag-highlight">🏆 8th Place</span>
+                        <span class="tag">MRI Reconstruction</span>
+                        <span class="tag">Swin Transformer</span>
+                        <span class="tag">MICCAI 2025</span>
+                        <a href="https://www.synapse.org/Synapse:syn59814210/wiki/634966" target="_blank" class="tag tag-link">View Rankings →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">WPS2Latex (Vibe Coding project, powered by GitHub Copilot and Hermes Agent)</h3>
+                    <ul class="project-details">
+                        <li>A WPS JS macro tool similar to Excel2LaTeX, enabling one-click export of selected spreadsheet tables to LaTeX tabular code</li>
+                        <li>Supports bold/italic text, column alignment (l/c/r), multirow, multicolumn, and booktabs rules</li>
+                        <li>Provides .xlam macro file that can be loaded directly into WPS Office</li>
+                        <li>MIT License, tested on WPS Office 2026 (Linux)</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">WPS Office</span>
+                        <span class="tag">LaTeX</span>
+                        <span class="tag">JavaScript Macro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
