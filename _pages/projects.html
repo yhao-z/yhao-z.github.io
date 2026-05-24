@@ -12,19 +12,26 @@ permalink: /projects/
 ██╔═══╝ ██╔══██╗██║   ██║██╗   ██║██╔══╝  ██║        ██║    ╚═══██╗
 ██║     ██║  ██║╚██████╔╝╚██████╔╝███████╗╚██████╗   ██║   ██████╔╝
 ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚═════╝</div>
-        <p class="terminal-subtitle">Research and open source projects</p>
+        <p class="terminal-subtitle" data-lang-en>Research and open source projects</p>
+        <p class="terminal-subtitle" data-lang-zh style="display:none">研究项目与开源项目</p>
     </div>
     <div class="projects-content">
-        <h3>Research Projects</h3>
+        <h3 data-lang-en>Research Projects</h3>
+        <h3 data-lang-zh style="display:none">研究项目</h3>
         <div class="projects-list">
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">Untrained Fixed Point Network</h3>
+                    <h3 class="project-title" data-lang-en>Untrained Fixed Point Network</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">无训练不动点网络</h3>
                     <ul class="project-details">
-                        <li>Oriented towards Untrained framework: Representative approach is Deep Image Prior, where the network doesn't require pre-training. Instead, it only trains on a single test sample during inference, and the network output becomes the test result after training.</li>
-                        <li>First to combine fixed point theory with Untrained framework, with mathematical proof of convergence</li>
-                        <li>Incorporated prior information to design a physics-driven network architecture within the proposed framework</li>
-                        <li>Related work submitted to IEEE TIP (Q1 TOP, IF: 13.7), Major Revision</li>
+                        <li data-lang-en>Oriented towards Untrained framework: Representative approach is Deep Image Prior, where the network doesn't require pre-training. Instead, it only trains on a single test sample during inference, and the network output becomes the test result after training.</li>
+                        <li data-lang-zh style="display:none">面向无训练框架：代表方法是Deep Image Prior，网络不需要预训练，仅在推理时对单个测试样本进行训练，网络输出即为测试结果。</li>
+                        <li data-lang-en>First to combine fixed point theory with Untrained framework, with mathematical proof of convergence</li>
+                        <li data-lang-zh style="display:none">首次将不动点理论与无训练框架结合，并提供收敛性的数学证明</li>
+                        <li data-lang-en>Incorporated prior information to design a physics-driven network architecture within the proposed framework</li>
+                        <li data-lang-zh style="display:none">引入先验信息，在所提框架内设计物理驱动的网络架构</li>
+                        <li data-lang-en>Related work submitted to IEEE TIP (Q1 TOP, IF: 13.7), Major Revision</li>
+                        <li data-lang-zh style="display:none">相关工作已投稿IEEE TIP（Q1 TOP，IF: 13.7），大修</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag">Untrained Framework</span>
@@ -35,13 +42,19 @@ permalink: /projects/
             </div>
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">Hypergraph-Inspired Linear Attention + Decoder-only Image Reconstruction Network</h3>
+                    <h3 class="project-title" data-lang-en>Hypergraph-Inspired Linear Attention + Decoder-only Image Reconstruction Network</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">超图启发的线性注意力 + Decoder-only图像重建网络</h3>
                     <ul class="project-details">
-                        <li>For MRI video reconstruction, data dimensions are large. Self-attention's quadratic complexity makes it difficult to directly apply in MRI video reconstruction frameworks (typically cascading dozens of networks)</li>
-                        <li>Combined self-attention with graph theory, using hypergraph to restructure self-attention mechanism, transforming it into "aggregate features to hyperedges, then distribute features to nodes" operation, achieving linear complexity</li>
-                        <li>For image restoration, current approaches directly apply U-Net from image segmentation</li>
-                        <li>Designed a Decoder-only network without U-Net's downsample-upsample approach, directly restoring from low to high resolution progressively, which is intuitive and suitable for image restoration tasks</li>
-                        <li>Related work submitted to Medical Image Analysis (Q1 TOP)</li>
+                        <li data-lang-en>For MRI video reconstruction, data dimensions are large. Self-attention's quadratic complexity makes it difficult to directly apply in MRI video reconstruction frameworks (typically cascading dozens of networks)</li>
+                        <li data-lang-zh style="display:none">MRI视频重建中数据维度较大，自注意力的二次复杂度使其难以直接应用于MRI视频重建框架（通常级联数十个网络）</li>
+                        <li data-lang-en>Combined self-attention with graph theory, using hypergraph to restructure self-attention mechanism, transforming it into "aggregate features to hyperedges, then distribute features to nodes" operation, achieving linear complexity</li>
+                        <li data-lang-zh style="display:none">将自注意力与图论结合，使用超图重构自注意力机制，将其转化为"聚合特征到超边，再分发特征到节点"的操作，实现线性复杂度</li>
+                        <li data-lang-en>For image restoration, current approaches directly apply U-Net from image segmentation</li>
+                        <li data-lang-zh style="display:none">对于图像恢复任务，现有方法都是直接应用图像分割中的U-Net，但是没考虑U-Net到底适不适合</li>
+                        <li data-lang-en>Designed a Decoder-only network without U-Net's downsample-upsample approach, directly restoring from low to high resolution progressively, which is intuitive and suitable for image restoration tasks</li>
+                        <li data-lang-zh style="display:none">设计了Decoder-only网络，摒弃U-Net的下采样-上采样方式，直接从低分辨率逐步恢复到高分辨率，直观且适合图像恢复任务</li>
+                        <li data-lang-en>Related work submitted to Medical Image Analysis (Q1 TOP)</li>
+                        <li data-lang-zh style="display:none">相关工作已投稿Medical Image Analysis（Q1 TOP）</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag">Hypergraph Attention</span>
@@ -52,12 +65,17 @@ permalink: /projects/
             </div>
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">Tensor Low-Rank and Sparse Constrained Deep Unfolding Network</h3>
+                    <h3 class="project-title" data-lang-en>Tensor Low-Rank and Sparse Constrained Deep Unfolding Network</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">张量低秩稀疏约束深度展开网络</h3>
                     <ul class="project-details">
-                        <li>For MRI video reconstruction, data is 3D (2D+T). Existing models mainly use matrices to describe redundant information within videos, which is insufficient</li>
-                        <li>From tensor perspective, based on tensor t-SVD decomposition, mathematically derived and proved a new unitary transform-based t-SVD decomposition method, designing a tensor low-rank prior</li>
-                        <li>Combined tensor low-rank and sparse priors, derived iterative optimization algorithm, implemented with deep learning to build deep unfolding network, where low-rank and sparse transform domains are adaptively learned using CNN</li>
-                        <li>Related work published in CIBM (Q2 TOP at submission)</li>
+                        <li data-lang-en>For MRI video reconstruction, data is 3D (2D+T). Existing models mainly use matrices to describe redundant information within videos, which is insufficient</li>
+                        <li data-lang-zh style="display:none">MRI视频重建中，数据是3D的（2D+时间）。现有模型主要用矩阵描述视频内的冗余信息，这是不够的</li>
+                        <li data-lang-en>From tensor perspective, based on tensor t-SVD decomposition, mathematically derived and proved a new unitary transform-based t-SVD decomposition method, designing a tensor low-rank prior</li>
+                        <li data-lang-zh style="display:none">从张量角度出发，基于张量t-SVD分解，数学推导并证明了一种新的基于酉变换的t-SVD分解方法，设计了张量低秩先验</li>
+                        <li data-lang-en>Combined tensor low-rank and sparse priors, derived iterative optimization algorithm, implemented with deep learning to build deep unfolding network, where low-rank and sparse transform domains are adaptively learned using CNN</li>
+                        <li data-lang-zh style="display:none">结合张量低秩和稀疏先验，推导迭代优化算法，用深度学习实现构建深度展开网络，其中低秩和稀疏变换域由CNN自适应学习</li>
+                        <li data-lang-en>Related work published in CIBM (Q2 TOP at submission)</li>
+                        <li data-lang-zh style="display:none">相关工作发表于CIBM（投稿时Q2 TOP）</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag">Tensor Low-Rank</span>
@@ -68,11 +86,15 @@ permalink: /projects/
             </div>
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">Differentiable SVD Algorithm Research</h3>
+                    <h3 class="project-title" data-lang-en>Differentiable SVD Algorithm Research</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">可微分SVD算法研究</h3>
                     <ul class="project-details">
-                        <li>In 2024, in PyTorch, if forward propagation contains SVD, training becomes extremely unstable</li>
-                        <li>The reason is: SVD derivative doesn't exist when there are two identical singular values</li>
-                        <li>Deeply studied SVD and its derivative derivation, combined with matrix generalized inverse, defined a differentiable SVD, and implemented its forward and backward propagation in PyTorch, defining a new SVD operator</li>
+                        <li data-lang-en>In 2024, in PyTorch, if forward propagation contains SVD, training becomes extremely unstable</li>
+                        <li data-lang-zh style="display:none">2024年，在PyTorch中，如果前向传播包含SVD，训练会变得极其不稳定</li>
+                        <li data-lang-en>The reason is: SVD derivative doesn't exist when there are two identical singular values</li>
+                        <li data-lang-zh style="display:none">原因是：当存在两个相同的奇异值时，SVD导数不存在</li>
+                        <li data-lang-en>Deeply studied SVD and its derivative derivation, combined with matrix generalized inverse, defined a differentiable SVD, and implemented its forward and backward propagation in PyTorch, defining a new SVD operator</li>
+                        <li data-lang-zh style="display:none">深入研究SVD及其导数推导，结合矩阵广义逆，定义了可微分SVD，并在PyTorch中实现其前向和反向传播，定义了新的SVD算子</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag">Differentiable SVD</span>
@@ -83,17 +105,24 @@ permalink: /projects/
             </div>
         </div>
 
-        <h3>Other Projects</h3>
+        <h3 data-lang-en>Open Source Projects</h3>
+        <h3 data-lang-zh style="display:none">开源项目</h3>
         <div class="projects-list">
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">CMRxRecon2025 Challenge - 8th Place</h3>
-                    <p class="project-team">Team: <strong>Hit.imip</strong></p>
+                    <h3 class="project-title" data-lang-en>CMRxRecon2025 Challenge - 8th Place</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">CMRxRecon2025挑战赛 - 第8名</h3>
+                    <p class="project-team" data-lang-en>Team: <strong>Hit.imip</strong></p>
+                    <p class="project-team" data-lang-zh style="display:none">队名：<strong>Hit.imip</strong></p>
                     <ul class="project-details">
-                        <li>CMRxRecon2025 is a MICCAI 2025 challenge focused on cardiac MRI reconstruction, aiming to build foundation models for multi-center, multi-vendor, and multiple disease scenarios</li>
-                        <li>Challenge involved 5+ centers, 10+ scanners, and various cardiovascular diseases including hypertrophic cardiomyopathy and myocardial infarction</li>
-                        <li>Our team achieved 8th place by fusing PromptMR+ with Swin Transformer architecture</li>
-                        <li>Trained with only 2 NVIDIA A6000 GPUs, potential for better results with more computational resources</li>
+                        <li data-lang-en>CMRxRecon2025 is a MICCAI 2025 challenge focused on cardiac MRI reconstruction, aiming to build foundation models for multi-center, multi-vendor, and multiple disease scenarios</li>
+                        <li data-lang-zh style="display:none">CMRxRecon2025是MICCAI 2025的挑战赛，聚焦心脏MRI重建，旨在构建多中心、多厂商、多疾病场景的基础模型</li>
+                        <li data-lang-en>Challenge involved 5+ centers, 10+ scanners, and various cardiovascular diseases including hypertrophic cardiomyopathy and myocardial infarction</li>
+                        <li data-lang-zh style="display:none">挑战赛涉及5+中心、10+扫描仪，以及多种心血管疾病包括肥厚型心肌病和心肌梗死</li>
+                        <li data-lang-en>Our team achieved 8th place by fusing PromptMR+ with Swin Transformer architecture</li>
+                        <li data-lang-zh style="display:none">我们通过融合PromptMR+与Swin Transformer架构获得第八名</li>
+                        <li data-lang-en>Trained with only 2 NVIDIA A6000 GPUs, potential for better results with more computational resources (for example, 8 GPUs)</li>
+                        <li data-lang-zh style="display:none">仅使用2张NVIDIA A6000 GPU训练，如果有更多计算资源（例如8卡训练），能取得更好成绩</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag tag-highlight">🏆 8th Place</span>
@@ -106,12 +135,17 @@ permalink: /projects/
             </div>
             <div class="project-card">
                 <div class="project-content">
-                    <h3 class="project-title">WPS2Latex (Vibe Coding project, powered by GitHub Copilot and Hermes Agent)</h3>
+                    <h3 class="project-title" data-lang-en>WPS2Latex (Vibe Coding project, powered by GitHub Copilot and Hermes Agent)</h3>
+                    <h3 class="project-title" data-lang-zh style="display:none">WPS2Latex (Vibe Coding项目，由GitHub Copilot和Hermes Agent驱动)</h3>
                     <ul class="project-details">
-                        <li>A WPS JS macro tool similar to Excel2LaTeX, enabling one-click export of selected spreadsheet tables to LaTeX tabular code</li>
-                        <li>Supports bold/italic text, column alignment (l/c/r), multirow, multicolumn, and booktabs rules</li>
-                        <li>Provides .xlam macro file that can be loaded directly into WPS Office</li>
-                        <li>MIT License, tested on WPS Office 2026 (Linux)</li>
+                        <li data-lang-en>A WPS JS macro tool similar to Excel2LaTeX, enabling one-click export of selected spreadsheet tables to LaTeX tabular code</li>
+                        <li data-lang-zh style="display:none">类似Excel2LaTeX的WPS JS宏工具，支持一键将选中的表格导出为LaTeX tabular代码</li>
+                        <li data-lang-en>Supports bold/italic text, column alignment (l/c/r), multirow, multicolumn, and booktabs rules</li>
+                        <li data-lang-zh style="display:none">支持加粗/斜体文本、列对齐（l/c/r）、合并行、合并列和booktabs规则</li>
+                        <li data-lang-en>Provides .xlam macro file that can be loaded directly into WPS Office</li>
+                        <li data-lang-zh style="display:none">提供.xlam宏文件，可直接加载到WPS Office中</li>
+                        <li data-lang-en>MIT License, tested on WPS Office 2026 (Linux)</li>
+                        <li data-lang-zh style="display:none">MIT许可证，在WPS Office 2026（Linux）上测试</li>
                     </ul>
                     <div class="project-tags">
                         <span class="tag">WPS Office</span>

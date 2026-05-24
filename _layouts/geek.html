@@ -17,9 +17,18 @@ layout: compress
             <!-- Profile Section -->
             <div class="profile-section">
                 <img src="/images/pic.png" alt="Yinghao Zhang" class="profile-avatar">
-                <h2 class="profile-name">Yinghao Zhang</h2>
-                <p class="profile-title">Ph.D candidate @ Harbin Institute of Technology</p>
-                <p class="profile-location">📍 Harbin, China</p>
+                <h2 class="profile-name">
+                    <span data-lang-en>Yinghao Zhang</span>
+                    <span data-lang-zh style="display:none">张英豪</span>
+                </h2>
+                <p class="profile-title">
+                    <span data-lang-en>Ph.D candidate @ Harbin Institute of Technology</span>
+                    <span data-lang-zh style="display:none">哈尔滨工业大学博士研究生</span>
+                </p>
+                <p class="profile-location">
+                    <span data-lang-en>📍 Harbin, China</span>
+                    <span data-lang-zh style="display:none">📍 中国，哈尔滨</span>
+                </p>
             </div>
 
             <!-- Navigation Tabs -->
@@ -29,21 +38,27 @@ layout: compress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                         </svg>
-                    </span> About
+                    </span>
+                    <span data-lang-en>About</span>
+                    <span data-lang-zh style="display:none">关于我</span>
                 </a>
                 <a href="/publications/" class="nav-tab{% if page.url == '/publications/' %} active{% endif %}">
                     <span class="nav-tab-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
                         </svg>
-                    </span> Publications
+                    </span>
+                    <span data-lang-en>Publications</span>
+                    <span data-lang-zh style="display:none">发表论文</span>
                 </a>
                 <a href="/projects/" class="nav-tab{% if page.url == '/projects/' %} active{% endif %}">
                     <span class="nav-tab-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                    </span> Projects
+                    </span>
+                    <span data-lang-en>Projects</span>
+                    <span data-lang-zh style="display:none">项目</span>
                 </a>
             </nav>
 
@@ -79,6 +94,12 @@ layout: compress
                 </a>
             </div>
 
+            <!-- Language Switch -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+            </div>
+
             <!-- Footer in Sidebar -->
             <footer class="sidebar-footer">
                 <p>Powered by Hermes Agent and Xiaomi MIMO</p>
@@ -92,5 +113,40 @@ layout: compress
             {{ content }}
         </main>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const html = document.documentElement;
+        
+        // 检查本地存储的语言偏好
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+        
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('lang', lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            // 更新按钮状态
+            langBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            
+            // 更新 HTML lang 属性
+            html.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 显示/隐藏语言内容
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                el.style.display = lang === 'en' ? '' : 'none';
+            });
+            document.querySelectorAll('[data-lang-zh]').forEach(el => {
+                el.style.display = lang === 'zh' ? '' : 'none';
+            });
+        }
+    });
+    </script>
 </body>
 </html>
