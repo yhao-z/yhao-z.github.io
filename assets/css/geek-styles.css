@@ -128,8 +128,146 @@ body {
     }
 }
 
+/* 竖屏优化 - 针对手机竖屏模式 */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* 竖屏时侧边栏改为顶部固定导航 */
+    .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: var(--bg-secondary);
+        border-bottom: 2px solid var(--border-color);
+        padding: 15px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* 简化竖屏时的侧边栏布局 */
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+    
+    .profile-name {
+        font-size: 18px;
+    }
+    
+    .profile-title {
+        font-size: 12px;
+    }
+    
+    .profile-location {
+        font-size: 11px;
+    }
+    
+    /* 竖屏导航标签优化 - 改为垂直堆叠，但保持可访问性 */
+    .nav-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    
+    .nav-tab {
+        padding: 10px 15px;
+        font-size: 13px;
+        flex-shrink: 0;
+        min-width: 80px; /* 确保每个标签有足够的点击区域 */
+        text-align: center;
+    }
+    
+    .nav-tab-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* 社交链接在竖屏时隐藏或简化 */
+    .social-links {
+        display: none;
+    }
+    
+    /* 语言切换在竖屏时简化 */
+    .lang-switch {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    /* 页脚在竖屏时隐藏 */
+    .sidebar-footer {
+        display: none;
+    }
+    
+    /* 内容区域调整 */
+    .content-area {
+        padding: 15px;
+        -webkit-overflow-scrolling: touch; /* 平滑滚动 */
+    }
+    
+    .content-section {
+        padding: 20px 15px;
+        min-height: auto;
+    }
+    
+    /* 竖屏时的内容标题调整 */
+    .terminal-title-3d {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    
+    .section-header {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+    
+    /* 竖屏时增加触摸反馈 */
+    .nav-tab:active {
+        transform: scale(0.95);
+        background-color: var(--accent-primary);
+        color: var(--bg-primary);
+    }
+    
+    /* 优化竖屏时的滚动性能 */
+    .main-container {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+    
+    /* 竖屏时优化内容卡片 */
+    .publication-item,
+    .skill-item,
+    .education-tag,
+    .award-item {
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    
+    /* 竖屏时优化网格布局 */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Mobile - stacked layout */
+    /* Mobile - stacked layout (applies to landscape mode only) */
+    /* 竖屏模式由上面的 @media (max-width: 768px) and (orientation: portrait) 规则处理 */
     .profile-section {
         flex-direction: column;
         text-align: center;
