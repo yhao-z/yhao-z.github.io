@@ -12,6 +12,35 @@ layout: compress
     <link rel="stylesheet" href="/assets/css/geek-styles.css">
 </head>
 <body>
+    <div class="mobile-topbar" aria-label="Mobile navigation">
+        <div class="mobile-topbar-name">
+            <span data-lang-en>Yinghao Zhang</span>
+            <span data-lang-zh style="display:none">张英豪</span>
+        </div>
+        <div class="mobile-topbar-controls">
+            <div class="mobile-topbar-menu">
+            <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">
+                <span class="mobile-menu-icon" aria-hidden="true"></span>
+                <span class="mobile-menu-label">Menu</span>
+            </button>
+            <div id="mobile-menu-panel" class="mobile-menu-panel" role="menu" aria-hidden="true">
+                <a href="/" class="mobile-menu-link" role="menuitem">About</a>
+                <a href="/publications/" class="mobile-menu-link" role="menuitem">Publications</a>
+                <a href="/projects/" class="mobile-menu-link" role="menuitem">Projects</a>
+            </div>
+            </div>
+            <div class="mobile-lang-switch" aria-label="Language switch">
+                <button class="mobile-lang-toggle" type="button" aria-expanded="false" aria-controls="mobile-lang-panel">
+                    <span data-lang-en>EN</span>
+                    <span data-lang-zh style="display:none">中</span>
+                </button>
+                <div id="mobile-lang-panel" class="mobile-lang-panel" role="menu" aria-hidden="true">
+                    <button class="lang-btn" data-lang="en" type="button" role="menuitem">EN</button>
+                    <button class="lang-btn" data-lang="zh" type="button" role="menuitem">中文</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="main-container">
         <!-- Left Sidebar -->
         <aside class="sidebar">
@@ -114,6 +143,7 @@ layout: compress
             {{ content }}
         </main>
     </div>
+    <script src="/assets/js/geek-portfolio.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const langBtns = document.querySelectorAll('.lang-btn');
@@ -133,8 +163,9 @@ layout: compress
         
         function setLanguage(lang) {
             // 更新按钮状态
-            langBtns.forEach(b => b.classList.remove('active'));
-            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            langBtns.forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+            });
             
             // 更新 HTML lang 属性
             html.lang = lang === 'zh' ? 'zh-CN' : 'en';

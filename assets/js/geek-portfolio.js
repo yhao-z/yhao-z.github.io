@@ -4,6 +4,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Keyboard navigation between pages
     const tabs = document.querySelectorAll('.nav-tab');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const menuPanel = document.querySelector('.mobile-menu-panel');
+    const langToggle = document.querySelector('.mobile-lang-toggle');
+    const langPanel = document.querySelector('.mobile-lang-panel');
     
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
@@ -34,6 +38,67 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = tabsArray[newIndex].getAttribute('href');
         }
     });
+
+    if (menuToggle && menuPanel) {
+        const closeMenu = () => {
+            menuPanel.classList.remove('open');
+            menuPanel.setAttribute('aria-hidden', 'true');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        menuToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const isOpen = menuPanel.classList.toggle('open');
+            menuPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!menuPanel.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    }
+
+    if (langToggle && langPanel) {
+        const closeLangMenu = () => {
+            langPanel.classList.remove('open');
+            langPanel.setAttribute('aria-hidden', 'true');
+            langToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        langToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const isOpen = langPanel.classList.toggle('open');
+            langPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        langPanel.addEventListener('click', function(event) {
+            const target = event.target;
+            if (target && target.matches('.lang-btn')) {
+                closeLangMenu();
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!langPanel.contains(event.target) && !langToggle.contains(event.target)) {
+                closeLangMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLangMenu();
+            }
+        });
+    }
 
     // Add animation on scroll
     const observerOptions = {

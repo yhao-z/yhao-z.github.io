@@ -66,6 +66,160 @@ body {
     overflow-y: auto;
 }
 
+/* Mobile Top Bar - hidden by default */
+.mobile-topbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1200;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.mobile-topbar-name {
+    font-size: 16px;
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+.mobile-topbar-menu {
+    position: relative;
+}
+
+.mobile-topbar-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-lang-switch {
+    position: relative;
+}
+
+.mobile-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0 10px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.mobile-lang-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    display: none;
+    min-width: 90px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    z-index: 1300;
+}
+
+.mobile-lang-panel.open {
+    display: block;
+}
+
+.mobile-lang-panel .lang-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-lang-panel .lang-btn:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.mobile-lang-panel .lang-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+}
+
+.mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.mobile-menu-icon {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background: linear-gradient(
+        to bottom,
+        var(--text-primary) 0,
+        var(--text-primary) 2px,
+        transparent 2px,
+        transparent 5px,
+        var(--text-primary) 5px,
+        var(--text-primary) 7px,
+        transparent 7px,
+        transparent 10px,
+        var(--text-primary) 10px,
+        var(--text-primary) 12px
+    );
+}
+
+.mobile-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 190px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    display: none;
+}
+
+.mobile-menu-panel.open {
+    display: block;
+}
+
+.mobile-menu-link {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.mobile-menu-link:hover {
+    background-color: var(--bg-tertiary);
+}
+
 /* Responsive Layout */
 @media (min-width: 1401px) {
     /* Large screens - centered */
@@ -129,127 +283,42 @@ body {
 }
 
 /* 竖屏优化 - 针对手机竖屏模式 */
-@media (max-width: 768px) and (orientation: portrait) {
-    /* 竖屏时侧边栏改为顶部固定导航 */
+@media (max-width: 768px) {
     .sidebar {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background-color: var(--bg-secondary);
-        border-bottom: 2px solid var(--border-color);
-        padding: 15px 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* 简化竖屏时的侧边栏布局 */
-    .profile-section {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        text-align: left;
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid var(--border-color);
-    }
-    
-    .profile-avatar {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 0;
-    }
-    
-    .profile-name {
-        font-size: 18px;
-    }
-    
-    .profile-title {
-        font-size: 12px;
-    }
-    
-    .profile-location {
-        font-size: 11px;
-    }
-    
-    /* 竖屏导航标签优化 - 改为垂直堆叠，但保持可访问性 */
-    .nav-tabs {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 8px;
-        padding-bottom: 10px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-    }
-    
-    .nav-tabs::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-    }
-    
-    .nav-tab {
-        padding: 10px 15px;
-        font-size: 13px;
-        flex-shrink: 0;
-        min-width: 80px; /* 确保每个标签有足够的点击区域 */
-        text-align: center;
-    }
-    
-    .nav-tab-icon {
-        width: 20px;
-        height: 20px;
-    }
-    
-    /* 社交链接在竖屏时隐藏或简化 */
-    .social-links {
         display: none;
     }
-    
-    /* 语言切换在竖屏时简化 */
-    .lang-switch {
+
+    .mobile-topbar {
         display: flex;
-        justify-content: center;
-        margin-top: 10px;
     }
-    
-    /* 页脚在竖屏时隐藏 */
-    .sidebar-footer {
-        display: none;
-    }
-    
-    /* 内容区域调整 */
+
     .content-area {
-        padding: 15px;
-        -webkit-overflow-scrolling: touch; /* 平滑滚动 */
+        margin-left: 0;
+        padding: 4px;
+        padding-top: 72px;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     .content-section {
-        padding: 20px 15px;
+        padding: 12px 4px;
         min-height: auto;
     }
-    
-    /* 竖屏时的内容标题调整 */
+
     .terminal-title-3d {
         font-size: 24px;
         letter-spacing: 2px;
     }
-    
+
     .section-header {
         margin-bottom: 30px;
         padding-bottom: 20px;
     }
-    
-    /* 竖屏时增加触摸反馈 */
-    .nav-tab:active {
-        transform: scale(0.95);
-        background-color: var(--accent-primary);
-        color: var(--bg-primary);
-    }
-    
-    /* 优化竖屏时的滚动性能 */
+
     .main-container {
         will-change: transform;
         transform: translateZ(0);
     }
-    
-    /* 竖屏时优化内容卡片 */
+
     .publication-item,
     .skill-item,
     .education-tag,
@@ -257,30 +326,10 @@ body {
         padding: 15px;
         margin-bottom: 12px;
     }
-    
-    /* 竖屏时优化网格布局 */
+
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Mobile - stacked layout (applies to landscape mode only) */
-    /* 竖屏模式由上面的 @media (max-width: 768px) and (orientation: portrait) 规则处理 */
-    .profile-section {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .profile-avatar {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .nav-tabs {
-        flex-wrap: wrap;
-        justify-content: center;
     }
 }
 
@@ -843,6 +892,15 @@ body {
     left: -20px;
     color: var(--accent-secondary);
     font-size: 12px;
+}
+
+.mobile-about-header {
+    display: none;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Education Tags */
@@ -1693,4 +1751,153 @@ body {
 :focus {
     outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
+}
+
+/* Mobile spacing overrides (placed last to win cascade) */
+@media (max-width: 768px) and (orientation: portrait) {
+    .content-area {
+        padding: 4px;
+        padding-top: 72px;
+    }
+
+    .content-section {
+        padding: 12px 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-area {
+        padding: 4px;
+        padding-top: 56px;
+    }
+
+    .content-section {
+        padding: 12px 4px;
+    }
+
+    .terminal-title-3d,
+    .terminal-title-img {
+        display: none;
+    }
+
+    .ascii-title {
+        display: none;
+    }
+
+    .terminal-subtitle {
+        display: none;
+    }
+
+    .terminal-section-header {
+        display: none;
+    }
+
+    .terminal-section-header,
+    .section-header {
+        margin-bottom: 16px;
+        padding-bottom: 0;
+        border: none;
+    }
+
+    .terminal-section-header::before,
+    .terminal-section-header::after,
+    .section-header::before,
+    .section-header::after {
+        content: none;
+    }
+
+    .content-section::before {
+        content: none;
+    }
+
+    .about-content .intro-tags {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .about-content .intro-tag {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .about-content .tags-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .about-content .tags-group .tag-combined,
+    .about-content .tags-group .tag-combined:nth-child(-n+3),
+    .about-content .tags-group .tag-combined:nth-child(n+4) {
+        grid-column: 1 / -1;
+    }
+
+    .about-content .tag-detail {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .education-logos {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-about-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .mobile-about-avatar {
+        width: 112px;
+        height: 112px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: var(--avatar-shadow);
+    }
+
+    .mobile-about-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    .mobile-about-name {
+        font-size: 16px;
+        color: var(--accent-secondary);
+        margin: 0;
+    }
+
+    .mobile-about-title {
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    .mobile-about-location {
+        font-size: 11px;
+        color: var(--accent-tertiary);
+        margin: 0;
+    }
+
+    .mobile-about-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .mobile-about-socials a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        border: 1px solid var(--border-color);
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--bg-tertiary);
+    }
 }
